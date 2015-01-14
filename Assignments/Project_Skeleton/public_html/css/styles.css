@@ -1,0 +1,19 @@
+body{
+	background-color: #0077FF;
+}
+
+#head h1{
+	color: #770077;
+	font-size: 3em;
+}
+#content{
+	width: 600px;
+	margin-left: 10%;
+}
+#footer{
+	width-min: 500px;
+	border: red solid 5px;
+	text-align: center;
+	font-size: 75%;
+	color: black;
+}
