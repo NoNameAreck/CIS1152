@@ -1,16 +1,12 @@
 <?php
 
 /**
- * Lab 2, Arithmatic Lab
+ * Lab 4, Form and Post Lab
  *
  * This lab focuses on your understanding of arithmatic.
  *
  * @version 1.0
-<<<<<<< HEAD
- * @author ARECK_LOGSDON <mynameisareck@gmail.com>
-=======
  * @author YOUR_NAME <YOUR_EMAIL_ADDRESS@vtc.edu>
->>>>>>> upstream/master
  * @since 20150120
  */
 
@@ -71,8 +67,55 @@ function impactVelocity($height)
 	echo $Velocity ."<br>";
 }
 
+if (isset($_POST['submit'])) {
+    $float_value  = $_POST["float_value"];
+    $degrees_f  = $_POST["degrees_f"];
+    $area = $_POST["area"];
+    $height  = $_POST["height"];
+} else {
+    $float_value = "";
+    $degrees_f  = "";
+    $area = "";
+    $height = "";
+}
 
- impactVelocity(98);
- dodecahedronVolume(89);
- farenheit2Kelvin(32);
- truncateFloat(56.78978);
+$form_layout = <<<EOD
+<p>
+<form method="post" action="">
+Truncate Float: <input type="number" name="float_value"><br>
+Farenheit 2 Kelvin: <input type="number" name="degrees_f"><br>
+Dodecahedron Volume: <input type="number" name="area"><br>
+Impact Velocity: <input type="number" name="height"><br>
+<input type="submit" value="submit" name="submit">
+</form>
+</p>
+
+EOD;
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class 4 Lab</title>
+</head>
+<body>
+<?php
+if (!isset($_POST['submit'])) {
+    // display the form
+	echo $form_layout;
+} else {
+    // display the output
+    echo " \nTruncate Float: "
+	truncateFloat($float_value);
+	echo"<br> \nFarenheit 2 Kelvin: "
+	farenheit2Kelvin($degrees_f);
+	echo"<br> \nDodecahedron Volume: "
+	dodecahedronVolume($area);
+	echo"<br> \nImpact Velocity: "
+	impactVelocity($height);
+	echo"<br>\n</p>\n";
+}
+?>
+</body>
+</html>
