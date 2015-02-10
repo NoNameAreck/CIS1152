@@ -9,7 +9,7 @@
  * @author YOUR_NAME <YOUR_EMAIL_ADDRESS@vtc.edu>
  * @since 20150120
  */
-
+ 
 /**
  * Outputs to the console a truncated float.
  *
@@ -79,18 +79,18 @@ if (isset($_POST['submit'])) {
     $height = "";
 }
 
-$form_layout = <<<EOD
+$form_layout = <<< EOD
 <p>
 <form method="post" action="">
-Truncate Float: <input type="number" name="float_value"><br>
-Farenheit 2 Kelvin: <input type="number" name="degrees_f"><br>
-Dodecahedron Volume: <input type="number" name="area"><br>
-Impact Velocity: <input type="number" name="height"><br>
+Truncate Float: <input type="decimal" name="float_value"><br>
+Farenheit 2 Kelvin: <input type="decimal" name="degrees_f"><br>
+Dodecahedron Volume: <input type="decimal" name="area"><br>
+Impact Velocity: <input type="decimal" name="height"><br>
 <input type="submit" value="submit" name="submit">
 </form>
 </p>
-
 EOD;
+
 
 ?>
 
@@ -106,13 +106,13 @@ if (!isset($_POST['submit'])) {
 	echo $form_layout;
 } else {
     // display the output
-    echo " \nTruncate Float: "
+    echo " \nTruncate Float: ";
 	truncateFloat($float_value);
-	echo"<br> \nFarenheit 2 Kelvin: "
+	echo"<br> \nFarenheit 2 Kelvin: ";
 	farenheit2Kelvin($degrees_f);
-	echo"<br> \nDodecahedron Volume: "
+	echo"<br> \nDodecahedron Volume: ";
 	dodecahedronVolume($area);
-	echo"<br> \nImpact Velocity: "
+	echo"<br> \nImpact Velocity: ";
 	impactVelocity($height);
 	echo"<br>\n</p>\n";
 }
