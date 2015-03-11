@@ -1,7 +1,11 @@
 <?php
 
 /**
+<<<<<<< HEAD
  * Lab 4, Form and Post Lab
+=======
+ * Lab 2, Arithmatic Lab
+>>>>>>> upstream/master
  *
  * This lab focuses on your understanding of arithmatic.
  *
@@ -9,7 +13,11 @@
  * @author YOUR_NAME <YOUR_EMAIL_ADDRESS@vtc.edu>
  * @since 20150120
  */
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> upstream/master
 /**
  * Outputs to the console a truncated float.
  *
@@ -19,6 +27,7 @@
  * @param $float_value
  */
 
+<<<<<<< HEAD
 define("GRAVITY", 9.8);
 
 $header = <<< EOD
@@ -48,10 +57,21 @@ function truncateFloat($float_value)
  * Takes the temperature in farenheit performs math operations
  * and returns in Kelvin
  *
+=======
+define('GRAVITY', 9.8);
+
+function truncateFloat($float_value)
+{
+    echo (int) floatval($float_value * 100) / 100;
+}
+
+/**
+>>>>>>> upstream/master
  * @param $degrees_f
  */
 function farenheit2Kelvin($degrees_f)
 {
+<<<<<<< HEAD
 	return($degrees_f - 32)*(5/9)+273.15;
 }
 
@@ -60,10 +80,17 @@ function farenheit2Kelvin($degrees_f)
  *
  * Giving the area of a line segment return the volume of the Dodecahedron
  *
+=======
+    echo ($degrees_f - 32) * 5 / 9 + 273.15;
+}
+
+/**
+>>>>>>> upstream/master
  * @param $area
  */
 function dodecahedronVolume($area)
 {
+<<<<<<< HEAD
 	return ((15+7*sqrt(5))/4)*pow($area,3);
 }
 
@@ -72,10 +99,17 @@ function dodecahedronVolume($area)
  *
  * Giving a height find the velocity at which the object with hit the ground on earth.
  *
+=======
+    echo pow($area, 3) / 4 * (15 + 7 * sqrt(5));
+}
+
+/**
+>>>>>>> upstream/master
  * @param $height
  */
 function impactVelocity($height)
 {
+<<<<<<< HEAD
 	return sqrt(2*GRAVITY*$height);
 }
 
@@ -89,20 +123,43 @@ if (isset($_POST['submit'])) {
     $degrees_f  = "";
     $area = "";
     $height = "";
+=======
+    echo sqrt(2 * GRAVITY * $height);
+}
+
+if (isset($_POST['submit'])) {
+    $truncateFloatInput = $_POST["truncateFloat"];
+    $farenheit2KelvinInput = $_POST["farenheit2Kelvin"];
+    $dodecahedronVolumeInput = $_POST["dodecahedronVolume"];
+    $impactVelocityInput = $_POST["impactVelocity"];
+} else {
+    $truncateFloatInput = "";
+    $farenheit2KelvinInput = "";
+    $dodecahedronVolumeInput = "";
+    $impactVelocityInput = "";
+>>>>>>> upstream/master
 }
 
 $form_layout = <<< EOD
 <p>
 <form method="post" action="">
+<<<<<<< HEAD
 Truncate Float: <input type="decimal" name="float_value"><br>
 Farenheit 2 Kelvin: <input type="decimal" name="degrees_f"><br>
 Dodecahedron Volume: <input type="decimal" name="area"><br>
 Impact Velocity: <input type="decimal" name="height"><br>
+=======
+<label name="truncateFloat">Floating Point Value</label><input type="text" name="truncateFloat"><br>
+<label name="farenheit2Kelvin">Farenheit Value</label><input type="text" name="farenheit2Kelvin"><br>
+<label name="dodecahedronVolume"></label>Dodecahedron Side Value<input type="text" name="dodecahedronVolume"><br>
+<label name="impactVelocity">Height of Fall Value</label><input type="text" name="impactVelocity"><br>
+>>>>>>> upstream/master
 <input type="submit" value="submit" name="submit">
 </form>
 </p>
 EOD;
 
+<<<<<<< HEAD
 
 
 if (!isset($_POST['submit'])) {
@@ -129,3 +186,42 @@ if (!isset($_POST['submit'])) {
 }
 ?>
 
+=======
+?>
+
+<html>
+<head>
+<title>Simple PHP Form Example</title>
+</head>
+<body>
+<?php
+if (!isset($_POST['submit'])) {
+    // display the form
+    echo $form_layout;
+} else {
+    if (!empty($truncateFloatInput)) {
+        echo "The truncated floating point value is:";
+        truncateFloat($truncateFloatInput);
+        echo "<br>";
+    }
+    if (!empty($farenheit2KelvinInput)) {
+        echo "The Kelvin value is:";
+        farenheit2Kelvin($farenheit2KelvinInput);
+        echo "<br>";
+    }
+    if (!empty($dodecahedronVolumeInput)) {
+        echo "The dodecahedron volume value is:";
+        dodecahedronVolume($dodecahedronVolumeInput);
+        echo "<br>";
+    }
+    if (!empty($impactVelocityInput)) {
+        echo "The splat value is:";
+        impactVelocity($impactVelocityInput);
+        echo "<br>";
+    }
+
+}
+?>
+</body>
+</html>
+>>>>>>> upstream/master
